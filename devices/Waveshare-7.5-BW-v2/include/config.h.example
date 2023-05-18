@@ -1,0 +1,40 @@
+#pragma once
+
+#define CFG_WIFI_SSID       "iotd"
+#define CFG_WIFI_PSK        "XXXXX"
+#define CFG_URL_INFO        "http://10.100.0.244/waveshare75v2/info"
+#define CFG_MODEL           "WS75v2"
+
+#define USE_DEBUG 1
+#define USE_HTTP_DEBUG 0
+#define USE_TIMING_DEBUG 0
+#define USE_WIFI_DEBUG 1
+
+
+#define uS_TO_S_FACTOR 1000000 /* Conversion factor for micro seconds to seconds */ 
+
+#if USE_DEBUG
+	#define DEBUG(format,...) Serial.printf("[DEBUG-%s-%lu] " format, __func__, millis() ,##__VA_ARGS__)
+#else
+	#define DEBUG(format,...) 
+#endif
+
+#if USE_HTTP_DEBUG
+	#define HTTP_DEBUG(format,...) Serial.printf("[HTTP-%s-%lu] " format, __func__, millis() ,##__VA_ARGS__)
+#else
+	#define HTTP_DEBUG(format,...) 
+#endif
+
+#if USE_TIMING_DEBUG
+	#define TIMING_DEBUG(format,...) Serial.printf("[TIMING-%s-%lu] " format, __func__, millis() ,##__VA_ARGS__)
+#else
+	#define TIMING_DEBUG(format,...) 
+#endif
+
+#if USE_WIFI_DEBUG
+	#define WIFI_DEBUG(format,...) Serial.printf("[WIFI-%s-%lu] " format, __func__, millis() ,##__VA_ARGS__)
+    #define WIFI_DEBUG_APPEND(format,...) Serial.printf(format, ##__VA_ARGS__)
+#else
+	#define WIFI_DEBUG(format,...)
+    #define WIFI_DEBUG_APPEND(format,...)
+#endif
