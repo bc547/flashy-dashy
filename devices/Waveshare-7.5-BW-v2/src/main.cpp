@@ -29,6 +29,8 @@ void setup() {
         delay(UINT32_MAX);  // sleep for a long long time :-)
     }
 
+    pinMode(4,OUTPUT);
+    digitalWrite(4,HIGH);   // enable EPD 5V power
     DEV_Module_Init();
 }
 
@@ -93,6 +95,8 @@ void loop() {
     // esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_SLOW_MEM, ESP_PD_OPTION_OFF);
     // esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_FAST_MEM, ESP_PD_OPTION_OFF);
     // esp_sleep_pd_config(ESP_PD_DOMAIN_XTAL,         ESP_PD_OPTION_OFF);
+
+    // GPIO floats in deepsleep, so EPD 5V power will be shut down also    
     esp_sleep_enable_timer_wakeup(30 * uS_TO_S_FACTOR);
     esp_deep_sleep_start();
 }
