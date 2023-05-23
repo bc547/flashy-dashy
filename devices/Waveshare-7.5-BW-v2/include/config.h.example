@@ -1,15 +1,16 @@
 #pragma once
 
 #define CFG_WIFI_SSID       "iotd"
-#define CFG_WIFI_PSK        "XXXXX"
-#define CFG_URL_INFO        "http://10.100.0.244/waveshare75v2/info"
+#define CFG_WIFI_PSK        "XXXX"		// CHANGE THIS TO THE CORRECT PSK
+#define CFG_URL_PROVISION   "https://icts-p-ceifnet-nodered-dingnet-workshop-user-1.cloud.icts.kuleuven.be/ice/provision"
 #define CFG_MODEL           "WS75v2"
 
 #define USE_DEBUG 1
-#define USE_HTTP_DEBUG 0
-#define USE_TIMING_DEBUG 0
+#define USE_HTTP_DEBUG 1
+#define USE_TIMING_DEBUG 1
 #define USE_WIFI_DEBUG 1
 
+#define STR_LEN_MAX		256
 
 #define uS_TO_S_FACTOR 1000000 /* Conversion factor for micro seconds to seconds */ 
 
